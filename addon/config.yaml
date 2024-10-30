@@ -1,0 +1,24 @@
+name: Homely to MQTT Bridge
+image: ghcr.io/viddi87/homely-mqtt-{arch}
+version: "1.0.0"
+slug: homely-mqtt
+description: Get Alarm Status From Homely API
+url: https://github.com/viddi87/homely-mqtt
+arch:
+  - amd64
+  - aarch64
+  - armv7
+init: false
+startup: services
+services:
+  - mqtt:need
+
+apparmor: true
+
+schema:
+  HOMELY_USER: "str?"
+  HOMELY_PASSWORD: "password?"
+  MQTT_HOST: "str?"
+  MQTT_PORT: "int?"
+  MQTT_USER: "str?"
+  MQTT_PASSWORD: "password?"
