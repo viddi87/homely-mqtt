@@ -1,3 +1,5 @@
+#!/usr/bin/with-contentv bashio
+
 if bashio::services.available mqtt ; then
     export MQTT_HOST="$(bashio::services mqtt 'host')"
     export MQTT_PORT="$(bashio::services mqtt 'port')"
@@ -32,5 +34,3 @@ fi
 env | grep HOMELY_ | sed -r 's/_(USER|PASSWORD)=.*/_\1=REDACTED/'
 set -x
 
-cd /app/dist/config
-exec /app/dist/config node-config
